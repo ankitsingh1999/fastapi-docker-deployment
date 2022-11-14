@@ -1,12 +1,6 @@
+version: "3.9"
 services:
-  app:
-    entrypoint:
-    - sleep
-    - infinity
-    image: docker/dev-environments-default:stable-1
-    init: true
-    volumes:
-    - type: bind
-      source: /var/run/docker.sock
-      target: /var/run/docker.sock
-
+  web:
+    build: .
+    ports:
+      - "8000:5000"
