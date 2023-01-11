@@ -10,24 +10,24 @@ app = FastAPI()
 session = requests.Session()
 
 # Asynchronized swap token api 
-@app.get("/swap/token")
-async def get_exchange_type(taker_address:str,sell_token:str,buy_token:str,sell_amount:str,slippage:str, request : Request):
-    print("running in functions ..")
-    response = {}
-    # required params
-    exchange_types = ["1inch","0x","KyberSwap", "Paraswap"]  # list of token exchance service providers
-    base_url = "https://v2-dev.unifront.io/v2/exchange"
-    for exchange_type in (exchange_types):
-        main_url = f"{base_url}/polygon/swap/?exchange_type={exchange_type}&taker_address={taker_address}&sell_token={sell_token}&buy_token={buy_token}&sell_amount={sell_amount}&slippage={slippage}"
-        result =  session.get(main_url)
-        data = result.json()
-        if data.get('status_code') == 200:
-            response['data'] = {"exchange_type" : exchange_type}
-            response['message'] = "Exchange type searched succesfully!"
-            break
-    else:
-        response['status_code'], response['message'] = 404, "Something went wrong while searching the exchange type"
-    return response
+# @app.get("/swap/token")
+# async def get_exchange_type(taker_address:str,sell_token:str,buy_token:str,sell_amount:str,slippage:str, request : Request):
+#     print("running in functions ..")
+#     response = {}
+#     # required params
+#     exchange_types = ["1inch","0x","KyberSwap", "Paraswap"]  # list of token exchance service providers
+#     base_url = "https://v2-dev.unifront.io/v2/exchange"
+#     for exchange_type in (exchange_types):
+#         main_url = f"{base_url}/polygon/swap/?exchange_type={exchange_type}&taker_address={taker_address}&sell_token={sell_token}&buy_token={buy_token}&sell_amount={sell_amount}&slippage={slippage}"
+#         result =  session.get(main_url)
+#         data = result.json()
+#         if data.get('status_code') == 200:
+#             response['data'] = {"exchange_type" : exchange_type}
+#             response['message'] = "Exchange type searched succesfully!"
+#             break
+#     else:
+#         response['status_code'], response['message'] = 404, "Something went wrong while searching the exchange type"
+#     return response
 
 # Asynchronized bridge token API
 @app.get("/bridge/token")
