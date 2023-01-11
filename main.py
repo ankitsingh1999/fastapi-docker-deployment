@@ -41,7 +41,6 @@ async def get_bridge_provider(from_chain:str,to_chain:str,from_token:str,to_toke
         final_response =  session.get(main_url)
         data = final_response.json()
         if data.get('status_code') == 200:
-            # print("required bridge_provider", bridge_provider)
             response['data'] = {"bridge_provider" : bridge_provider}
             response['message'] = "Required bridge provider fetched succesfully!"
             break
