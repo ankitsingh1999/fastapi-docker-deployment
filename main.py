@@ -45,5 +45,7 @@ async def get_bridge_provider(from_chain:str,to_chain:str,from_token:str,to_toke
             response['message'] = "Required bridge provider fetched succesfully!"
             break
     else:
-        response['status_code'], response['message'] = 404, "Something went wrong while searching the bridge provider"
+        response['status_code'] = 404
+        response['message'] = "Something went wrong while searching the bridge provider"
+
     return response
