@@ -34,7 +34,7 @@ async def get_exchange_type(taker_address:str,sell_token:str,buy_token:str,sell_
 # async def get_bridge_provider(from_chain:str,to_chain:str,from_token:str,to_token:str,from_amount:str,from_address:str, to_address:str, request : Request):
 async def get_bridge_provider(from_chain:str,to_chain:str,from_token:str,to_token:str,from_amount:str,from_address:str,to_address:str,request:Request):
     response = {}
-    bridge_providers = ["router","LI.FI", "XY", "Socket", "deBridge", "Range"]  # list of bridge token service providers
+    bridge_providers = ["router","LI.FI", "XY", "Socket", "deBridge", "Range", "XYFinance"]  # list of bridge token service providers
     base_url = "https://v2-dev.unifront.io/v2/bridge/quote"
     for bridge_provider in (bridge_providers):
         main_url = f"{base_url}?from_chain={from_chain}&to_chain={to_chain}&from_token={from_token}&to_token={to_token}&from_amount={from_amount}&from_address={from_address}&to_address={to_address}&bridge_provider={bridge_provider}"
