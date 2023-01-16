@@ -49,3 +49,8 @@ async def get_bridge_provider(from_chain:str,to_chain:str,from_token:str,to_toke
         response['message'] = "Something went wrong while searching the bridge provider"
 
     return response
+
+# To get the balance of a wallet address
+def get_balances(Request, chain, address):
+    url = f"https://v2.unifront.io/v2/{chain}/address/{address}/balances"
+   
